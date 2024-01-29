@@ -1,0 +1,29 @@
+general {
+	colors = true
+	interval = 5
+}
+order += "battery 0"
+order += "wireless wlp0s20u5"
+order += "load"
+order += "tztime local"
+
+
+battery 0 {
+	format = "%status %percentage %remaining %emptytime"
+
+	path = "/sys/class/power_supply/BAT1/uevent"
+}
+
+wireless wlp0s20u5 {
+	format_up = "W: (%quality at %essid, %bitrate) %ip"
+
+	format_down = "W: down"
+}
+
+load {
+	format = "%5min"
+}
+
+tztime local {
+	format = "%H:%M:%S"
+}

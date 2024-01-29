@@ -1,0 +1,6 @@
+- name: install sway
+  hosts: localhost
+
+  roles:
+    - install_sway
+  

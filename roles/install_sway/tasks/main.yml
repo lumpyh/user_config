@@ -1,0 +1,65 @@
+- name: install sway
+  community.general.pacman:
+    name: sway
+    state: present
+  become: true
+
+- name: install dmenu
+  community.general.pacman:
+    name: dmenu
+    state: present
+  become: true
+
+- name: install i3status
+  community.general.pacman:
+    name: i3status
+    state: present
+  become: true
+
+- name: install swayidle
+  community.general.pacman:
+    name: swayidle
+    state: present
+  become: true
+
+- name: install swaylock
+  community.general.pacman:
+    name: swaylock
+    state: present
+  become: true
+
+- name: make sway config dir
+  ansible.builtin.file:
+    path: "~/.config/sway/config.d"
+    state: directory
+    recurse: yes
+
+- name: make i3bar config dir
+  ansible.builtin.file:
+    path: "~/.config/i3status"
+    state: directory
+    recurse: yes
+
+- name: copy sway config
+  ansible.builtin.copy:
+    src: "templates/sway/config"
+    dest: "~/.config/sway/"
+
+- name: copy bg image config
+  ansible.builtin.copy:
+    src: "templates/sway/arch_new.png"
+    dest: "~/.config/sway/"
+
+- name: copy sway volume ctl config
+  ansible.builtin.copy:
+    src: "templates/sway/config.d/audio_volume_ctl"
+    dest: "~/.config/sway/config.d/"
+
+- name: copy i3status conf
+  ansible.builtin.copy:
+    src: "templates/i3status/config"
+    dest: "~/.config/i3status/"
+
+
+
+
