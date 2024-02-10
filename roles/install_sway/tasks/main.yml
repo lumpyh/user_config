@@ -55,6 +55,11 @@
     src: "templates/sway/config.d/audio_volume_ctl"
     dest: "~/.config/sway/config.d/"
 
+- name: copy window settings config
+  ansible.builtin.copy:
+    src: "templates/sway/config.d/window_settings"
+    dest: "~/.config/sway/config.d/"
+
 - name: copy i3status conf
   ansible.builtin.copy:
     src: "templates/i3status/config"
