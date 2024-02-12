@@ -60,6 +60,11 @@
     src: "templates/sway/config.d/window_settings"
     dest: "~/.config/sway/config.d/"
 
+- name: copy short_cuts config
+  ansible.builtin.copy:
+    src: "templates/sway/config.d/short_cuts"
+    dest: "~/.config/sway/config.d/"
+
 - name: copy i3status conf
   ansible.builtin.copy:
     src: "templates/i3status/config"
