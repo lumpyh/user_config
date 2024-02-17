@@ -1,0 +1,17 @@
+- name: install neovim
+  community.general.pacman:
+    name: neovim
+    state: present
+  become: true
+
+- name: make nvim config dir
+  ansible.builtin.file:
+    path: "~/.config/nvim"
+    state: directory
+    recurse: yes
+
+- name: copy nvim init.lua
+  ansible.builtin.copy:
+    src: "templates/init.lua"
+    dest: "~/.config/nvim/init.lua"
+
