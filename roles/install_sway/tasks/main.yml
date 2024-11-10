@@ -28,6 +28,21 @@
     state: present
   become: true
 
+- name: make sway lock config dir
+  ansible.builtin.file:
+    path: "~/.swaylock/"
+    state: directory
+
+- name: copy swaylock config
+  ansible.builtin.copy:
+    src: "templates/swaylock_cfg"
+    dest: "~/.swaylock/config"
+
+- name: copy swaylock image
+  ansible.builtin.copy:
+    src: "templates/sway/arch_new_locked.png"
+    dest: "~/.swaylock/lock_image.png"
+
 - name: make sway config dir
   ansible.builtin.file:
     path: "~/.config/sway/config.d"
