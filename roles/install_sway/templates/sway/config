@@ -46,6 +46,11 @@ exec swayidle -w \
 #active bat low notification
 #exec bat_notify.sh
 
+# start swaybar
+bar {
+	swaybar_command waybar
+}
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -203,25 +208,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindcode 225 exec $term
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command i3status
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
-
 
 input * {
 	xkb_layout "de"
