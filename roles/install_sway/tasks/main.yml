@@ -4,9 +4,9 @@
     state: present
   become: true
 
-- name: install dmenu
+- name: install wofi
   community.general.pacman:
-    name: dmenu
+    name: wofi
     state: present
   become: true
 
