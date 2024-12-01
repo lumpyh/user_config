@@ -60,6 +60,17 @@
     src: "templates/sway/config"
     dest: "~/.config/sway/"
 
+- name: make wofi config dir
+  ansible.builtin.file:
+    path: "~/.config/wofi"
+    state: directory
+    recurse: yes
+
+- name: copy wofi config
+  ansible.builtin.copy:
+    src: "templates/wofi.css"
+    dest: "~/.config/wofi/"
+
 - name: copy bg image config
   ansible.builtin.copy:
     src: "templates/sway/arch_new.png"
