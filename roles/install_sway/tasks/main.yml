@@ -40,6 +40,23 @@
     state: present
   become: true
 
+- name: install alacritty
+  community.general.pacman:
+    name: alacritty
+    state: present
+  become: true
+
+- name: make alacritty conf dir
+  ansible.builtin.file:
+    name: "~/.config/alacritty"
+    state: directory
+    recurse: true
+
+- name: copy alacritty toml
+  ansible.builtin.copy:
+    src: "templates/alacritty.toml"
+    dest: "~/.config/alacritty/alacritty.toml"
+
 - name: make sway lock config dir
   ansible.builtin.file:
     path: "~/.swaylock/"
