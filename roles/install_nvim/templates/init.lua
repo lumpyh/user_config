@@ -1,11 +1,18 @@
+require('config.lazy')
 
+local lspconfig = require('lspconfig')
+
+lspconfig.rust_analyzer.setup {
+	settings = {
+		['rust-analyzer'] = {},
+	},
+}
+
+lspconfig.clangd.setup {}
 
 vim.wo.number = true
 
 vim.keymap.set('i', 'jk', '<ESC>')
-
-local lspconfig = require('lspconfig')
-lspconfig.clangd.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -44,3 +51,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
+

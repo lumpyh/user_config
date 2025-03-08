@@ -10,8 +10,26 @@
     state: directory
     recurse: yes
 
+- name: make lua config dir
+  ansible.builtin.file:
+    path: "~/.config/nvim/lua/config"
+    state: directory
+    recurse: yes
+
+- name: make lua plugins dir
+  ansible.builtin.file:
+    path: "~/.config/nvim/lua/plugins"
+    state: directory
+    recurse: yes
+
 - name: copy nvim init.lua
   ansible.builtin.copy:
     src: "templates/init.lua"
     dest: "~/.config/nvim/init.lua"
+
+- name: copy nvim init.lua
+  ansible.builtin.copy:
+    src: "templates/lazy.lua"
+    dest: "~/.config/nvim/lua/config/lazy.lua"
+
 
